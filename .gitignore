@@ -1,0 +1,89 @@
+# ====================================================================
+# GITIGNORE CHO DỰ ÁN RESEARCH: MoE_Vietnamese_NLI
+# ====================================================================
+
+# --------------------------------------------------------------------
+# 1. Môi trường ảo (Virtual Environments)
+# --------------------------------------------------------------------
+# Không đẩy các thư viện cục bộ đã cài trong máy lên GitHub để tránh làm nặng repo
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+include/
+share/
+
+# --------------------------------------------------------------------
+# 2. Bộ nhớ đệm Python & Trình biên dịch (Python Cache & Compiled)
+# --------------------------------------------------------------------
+# Loại bỏ các thư mục tự sinh khi hệ thống nạp các file module routing_*.py
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.modshare/
+
+# --------------------------------------------------------------------
+# 3. Bộ dữ liệu gốc (Raw Datasets)
+# --------------------------------------------------------------------
+# Bộ dữ liệu NLI tiếng Việt có kích thước lớn và cần bảo mật, tuyệt đối KHÔNG push lên git
+train.csv
+validation.csv
+test.csv
+*.tar.gz
+*.zip
+*.rar
+
+# --------------------------------------------------------------------
+# 4. Trọng số mô hình & Checkpoints (Weights & Model Checkpoints)
+# --------------------------------------------------------------------
+# Các tệp trọng số .pth của PhoBERT-large và XLM-R-large nặng hàng GB.
+# Nếu đẩy lên sẽ gây lỗi nghẽn Git (vượt quá giới hạn 100MB của GitHub).
+**/checkpoints_phobert_multi/
+**/checkpoints_xlmr_32/
+**/excheckpoints_phobert/
+*.pth
+*.pt
+*.bin
+*.h5
+*.ckpt
+
+# --------------------------------------------------------------------
+# 5. Nhật ký của Jupyter Lab & Trình soạn thảo (Jupyter & IDE Config)
+# --------------------------------------------------------------------
+# Loại bỏ các tệp cấu hình ẩn của VS Code, PyCharm và lịch sử lưu tạm của Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --------------------------------------------------------------------
+# 6. Tệp rác của Hệ điều hành (OS Garbage Files)
+# --------------------------------------------------------------------
+Thumbs.db
+Desktop.ini
+.DS_Store
+.DS_Store?
+._*
+
+# --------------------------------------------------------------------
+# 7. Nhật ký hệ thống & Thí nghiệm tạm (Logs & Reports)
+# --------------------------------------------------------------------
+*.log
+crash_dump_*
+
+# LƯU Ý NGOẠI LỆ (Exceptions):
+# Nếu nhóm muốn lưu các file kết quả log CSV (results_*.csv) để đối chiếu tiến độ,
+# lệnh dưới đây đảm bảo các file kết quả này SẼ KHÔNG bị ẩn/ignore.
+!results_phobert_multi.csv
+!results_log_phobert.csv
+!results_xlmr_32exp.csv
+!benchmark_summary.csv
