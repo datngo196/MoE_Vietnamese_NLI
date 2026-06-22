@@ -1,0 +1,2 @@
+Seed,Routing,Best_Val_Acc,Best_Val_F1,Test_Acc,Test_F1,GFLOPS,Test_Runtime_ms,Test_VRAM_MB,Test_Entropy,Test_Expert_Usage,Backbone_Params,Backbone_Memory_MB
+42,expert_choice,0.446,0.36245833078345874,0.455,0.3676035657812819,161.721355264,526.9448938369751,17511.28955078125,0.0,None,559890432,2135.8125
